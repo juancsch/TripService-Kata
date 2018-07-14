@@ -1,0 +1,17 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint-config-standard"
+    ],
+    "jsRules": {},
+    "rules": {
+      "ter-indent": [true, "tab"]
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+      "exclude": [
+          "lib",
+          "node_modules"
+      ]
+    }
+}

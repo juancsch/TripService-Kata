@@ -1,0 +1,14 @@
+{
+  "name": "trip-service-kata",
+  "version": "0.0.1",
+  "description": "Kata for a legacy code. The objective is to write tests and refactor the given legacy code.",
+  "scripts": {
+    "test": "jest",
+    "tdd": "jest -w",
+    "coverage": "jest -coverage"
+  },
+  "devDependencies": {
+    "jest": "23.4.2",
+    "standard": "11.0.1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "trip-service-kata-ts",
+  "version": "0.0.1",
+  "description": "Kata for a legacy code. The objective is to write tests and refactor the given legacy code.",
+  "main": "lib/index",
+  "scripts": {
+    "test": "jest",
+    "tdd": "jest --watch",
+    "coverage": "jest --coverage",
+    "build": "tsc",
+    "building": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "23.0.2",
+    "jest": "23.3.0",
+    "ts-jest": "23.0.0",
+    "tslint": "5.10.0",
+    "tslint-config-standard": "7.1.0",
+    "typescript": "2.9.2"
+  }
+}
