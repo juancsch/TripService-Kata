@@ -8,20 +8,19 @@ module.exports = class TripService {
 		let loggedUser = this.getLoggedUser()
 		this._validate(loggedUser)
 
-		let tripList = []
-
-		let isFriend = user.isFriendsWith(loggedUser)
-		if (isFriend) {
-			tripList = this.findTripsBy(user)
-
-		}
-		return tripList
+		return user.isFriendsWith(loggedUser) ?
+			this.findTripsBy(user) :
+			this.noTrips()
 	}
 
 	_validate(loggedUser) {
 		if (loggedUser == null) {
 			throw new Error('User not logged in.')
 		}
+	}
+
+	noTrips () {
+		return []
 	}
 
 	findTripsBy (user) {
