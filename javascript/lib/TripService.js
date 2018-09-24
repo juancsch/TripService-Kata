@@ -3,9 +3,8 @@ const TripDAO = require('./TripDAO')
 
 module.exports = class TripService {
 
-	getTripsByUser (user) {
+	getTripsByUser (user, loggedUser) {
 
-		let loggedUser = this.getLoggedUser()
 		this._validate(loggedUser)
 
 		return user.isFriendsWith(loggedUser) ?
@@ -13,7 +12,7 @@ module.exports = class TripService {
 			this.noTrips()
 	}
 
-	_validate(loggedUser) {
+	_validate (loggedUser) {
 		if (loggedUser == null) {
 			throw new Error('User not logged in.')
 		}
@@ -25,9 +24,5 @@ module.exports = class TripService {
 
 	findTripsBy (user) {
 		return TripDAO.findTripsByUser(user)
-	}
-
-	getLoggedUser () {
-		return UserSession.getLoggedUser()
 	}
 }
