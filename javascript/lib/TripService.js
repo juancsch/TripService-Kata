@@ -9,22 +9,12 @@ module.exports = class TripService {
 		this._validate(loggedUser)
 
 		let tripList = []
-		let isFriend = false
 
-		let friends = user.getFriends()
-		for (let i = 0; i < friends.length; i++) {
-			let friend = friends[i]
-			if (friend === loggedUser) {
-				isFriend = true
-				break
-			}
-		}
-
+		let isFriend = user.isFriendsWith(loggedUser)
 		if (isFriend) {
 			tripList = this.findTripsBy(user)
 
 		}
-
 		return tripList
 	}
 

@@ -1,24 +1,28 @@
 
 module.exports = class User {
 
-	constructor(friends = [], trips = []) {
+	constructor (friends = [], trips = []) {
 		this.friends = friends
 		this.trips = trips
 	}
 
-	getFriends() {
+	getFriends () {
 		return this.friends
 	}
 
-	addFriend(user) {
+	addFriend (user) {
 		this.friends.push(user)
 	}
 
-	addTrip(trip) {
+	addTrip (trip) {
 		this.trips.push(trip)
 	}
 
-	getTrips() {
+	getTrips () {
 		return this.trips
+	}
+
+	isFriendsWith (user) {
+		return this.friends.includes(user)
 	}
 }
