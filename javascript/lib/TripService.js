@@ -3,13 +3,17 @@ const TripDAO = require('./TripDAO')
 
 module.exports = class TripService {
 
+	constructor (tripDao) {
+		this.tripDao = tripDao
+	}
+
 	getTripsByUser (user, loggedUser) {
 
 		this._validate(loggedUser)
 
 		return user.isFriendsWith(loggedUser) ?
-			this.findTripsBy(user) :
-			this.noTrips()
+			this._tripsBy(user) :
+			this._noTrips()
 	}
 
 	_validate (loggedUser) {
@@ -18,11 +22,11 @@ module.exports = class TripService {
 		}
 	}
 
-	noTrips () {
+	_noTrips () {
 		return []
 	}
 
-	findTripsBy (user) {
-		return TripDAO.findTripsByUser(user)
+	_tripsBy (user) {
+		return this.tripDao.findTripsByUser(user)
 	}
 }

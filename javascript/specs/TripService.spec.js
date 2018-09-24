@@ -53,11 +53,10 @@ describe('TripService characterization tests', () => {
 
 	function createTripServiceWith ({userLogged = null, tripsByUser = []} = {}) {
 
-		const tripService = new TripService()
-
-		tripService.findTripsBy = function () {
-			return tripsByUser
+		const tripDaoStub = {
+			findTripsByUser: () => tripsByUser
 		}
+		const tripService = new TripService(tripDaoStub)
 
 		return tripService
 	}
